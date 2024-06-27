@@ -13,8 +13,8 @@ import pickle
 # Load the model and vectorizer
 @st.cache_resource
 def load_model_and_vectorizer():
-    model_path = 'model.pkl'
-    vectorizer_path = 'vectorizer.pkl'
+    model_path = '\\final-project\\final_project_model\\model.pkl'
+    vectorizer_path = '\\final-project\\final_project_model\\vectorizer.pkl'
     with open(model_path, 'rb') as model_file:
         model = pickle.load(model_file)
     with open(vectorizer_path, 'rb') as vectorizer_file:
