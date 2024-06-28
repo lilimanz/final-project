@@ -63,7 +63,11 @@ def main():
         st.write("Ready to spot red flags? Use the Red Flag Detector to foster a positive vibe and suss out any toxicity in your interactions. Enter text below to check for warning signs in conversations with friends or partners. Let's keep it healthy! 💬")
         
         # Load model and vectorizer
-        model, vectorizer = load_model_and_vectorizer()
+        model, vectorizer, error_message = load_model_and_vectorizer()
+        
+        if error_message:
+            st.warning(error_message)
+            st.stop()  # Stop further execution if there's an error
         
         # User input text area
         user_inputs = st.text_area('Enter as many comment as you need, please make sure there is one per line 😉 ', height=200).split('\n')
