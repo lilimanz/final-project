@@ -18,7 +18,7 @@ def load_model_and_vectorizer():
     vectorizer_path = 'vectorizer.pkl'
     
     if not os.path.exists(model_path) or not os.path.exists(vectorizer_path):
-        st.error(f"Model file or vectorizer file not found. Ensure '{model_path}' and '{vectorizer_path}' are in the correct directory.")
+        #st.error(f"Model file or vectorizer file not found. Ensure '{model_path}' and '{vectorizer_path}' are in the correct directory.")
         return None, None
     
     with open(model_path, 'rb') as model_file:
