@@ -14,18 +14,18 @@ import pickle
 # Load the model and vectorizer
 @st.cache_resource
 def load_model_and_vectorizer():
-    model_path = 'model.pkl'
-    vectorizer_path = 'vectorizer.pkl'
+    extract_path = './final_project_model/'  # Directory where model and vectorizer files are stored
+    model_path = os.path.join(extract_path, 'model.pkl')
+    vectorizer_path = os.path.join(extract_path, 'vectorizer.pkl')
     
     if not os.path.exists(model_path) or not os.path.exists(vectorizer_path):
-        #st.error(f"Model file or vectorizer file not found. Ensure '{model_path}' and '{vectorizer_path}' are in the correct directory.")
-        return None, None
+        return None, None, "Model file or vectorizer file not found. Ensure they are in the correct directory."
     
     with open(model_path, 'rb') as model_file:
         model = pickle.load(model_file)
     with open(vectorizer_path, 'rb') as vectorizer_file:
         vectorizer = pickle.load(vectorizer_file)
-    return model, vectorizer
+    return model, vectorizer, None
 
 def preprocess_text(text):
     # Convert text to lowercase
